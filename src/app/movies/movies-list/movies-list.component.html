@@ -35,7 +35,7 @@
               <td>{{ movie.name }}</td>
               <td>{{ movie.language }}</td>
               <td>{{ movie.type }}</td>
-              <td>{{ movie.rate }}</td>
+              <td><app-star [rating]="movie.rate"></app-star></td>
             </tr>
           </tbody>
         </table>

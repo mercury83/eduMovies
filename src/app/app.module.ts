@@ -8,9 +8,15 @@ import { AppComponent } from './app.component';
 import { MoviesListComponent } from './movies/movies-list/movies-list.component';
 import { MoviesFilterPipe } from './movies/movies-filter.pipe';
 import { MoviesService } from './movies/movies.service';
+import { StarComponent } from './shared/star/star.component';
 
 @NgModule({
-  declarations: [AppComponent, MoviesListComponent, MoviesFilterPipe],
+  declarations: [
+    AppComponent,
+    MoviesListComponent,
+    MoviesFilterPipe,
+    StarComponent
+  ],
   imports: [BrowserModule, FormsModule, HttpClientModule],
   providers: [MoviesService],
   bootstrap: [AppComponent]
