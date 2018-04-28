@@ -1,3 +1,23 @@
-<div class="container">
-  <app-movies-list></app-movies-list>
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <span class="navbar-brand">Angular 5</span>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li [class.active]="home.isActive">
+            <a routerLink="/home" [routerLinkActive] #home="routerLinkActive">Home</a>
+        </li>
+        <li [class.active]="music.isActive">
+            <a routerLink="/music" [routerLinkActive] #music="routerLinkActive">Music</a>
+        </li>
+        <li [class.active]="movies.isActive">
+            <a routerLink="/movies" [routerLinkActive] #movies="routerLinkActive">Movies</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container container-main">
+  <router-outlet></router-outlet>
 </div>

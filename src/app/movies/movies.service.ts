@@ -10,12 +10,8 @@ export class MoviesService {
   constructor(private http: HttpClient) {}
 
   getMovies(): Observable<Movie[]> {
-    return this.http.get('https://ngmovies.herokuapp.com/api/getMovies').pipe(
-      map(res => res ? res : []),
-      catchError(err => {
-        console.error(err);
-        return Observable_of([]);
-      })
-    ) as Observable<Movie[]>;
+      return this.http.get('https://ngmovies.herokuapp.com/api/getMovies').pipe(
+        map(res => res ? res : [])
+      ) as Observable<Movie[]>;
   }
 }

@@ -1,0 +1,40 @@
+<!-- Error message if present -->
+<div class="row" *ngIf="errorText">
+  <div class="col-md-12">
+    <div class="alert alert-danger" role="alert">{{ errorText }}</div>
+  </div>
+</div>
+<!-- Music grid -->
+<div class="row">
+  <ng-container *ngFor="let artist of (musicData | async)[0].artists; index as i; let first = first; let odd = odd">
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              {{ artist.name }}
+            </div>
+            <div class="panel-body">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  {{ artist.bio }}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <button type="button" class="btn btn-primary" (click)="toggleAlbumsVisibility(artist)">
+                    {{ artist.albumsVisible ? 'Hide albums' : 'Show albums' }}
+                  </button>
+                </div>
+              </div>
+            </div>
+            <ul class="list-group" *ngIf="artist.albumsVisible">
+              <li class="list-group-item" *ngFor="let album of artist.albums; index as j">{{ j + 1 + '. ' + album.title }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix" *ngIf="!first && odd"></div>
+  </ng-container>
+</div>

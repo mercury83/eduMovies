@@ -12,6 +12,12 @@
         </div>
       </div>
     </div>
+    <!-- Error message if present -->
+    <div class="row" *ngIf="errorText">
+      <div class="col-md-12">
+        <div class="alert alert-danger" role="alert">{{ errorText }}</div>
+      </div>
+    </div>
     <!-- Movies list -->
     <div class="row">
       <div class="table-responsive">
@@ -35,7 +41,9 @@
               <td>{{ movie.name }}</td>
               <td>{{ movie.language }}</td>
               <td>{{ movie.type }}</td>
-              <td><app-star [rating]="movie.rate"></app-star></td>
+              <td>
+                <app-star [rating]="movie.rate"></app-star>
+              </td>
             </tr>
           </tbody>
         </table>
