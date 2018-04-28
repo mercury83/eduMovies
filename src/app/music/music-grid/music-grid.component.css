@@ -1,3 +1,20 @@
 .clearfix {
   margin-bottom: 80px;
 }
+
+.img-responsive {
+  min-width: 100%;
+}
+
+p.artist-bio {
+  font-size: 16px;
+  text-align: justify;
+}
+
+span.album-title {
+  display: inline-block;
+}
+
+img.img-thumbnail.album-cover {
+  max-width: 50%;
+}

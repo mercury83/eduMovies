@@ -10,16 +10,15 @@
     <div class="col-md-6">
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
-          <div class="panel panel-primary">
-            <div class="panel-heading">
-              {{ artist.name }}
-            </div>
+          <div class="panel panel-default">
+            <img class="img-responsive" [src]="'assets/images/covers/' + artist.cover + '.jpg'" />
             <div class="panel-body">
-              <div class="panel panel-default">
-                <div class="panel-body">
-                  {{ artist.bio }}
+              <div class="row">
+                <div class="col-md-12">
+                  <h2>{{ artist.name }}</h2>
                 </div>
               </div>
+              <p class="artist-bio">{{ artist.bio }}</p>
               <div class="row">
                 <div class="col-md-6">
                   <button type="button" class="btn btn-primary" (click)="toggleAlbumsVisibility(artist)">
@@ -29,7 +28,10 @@
               </div>
             </div>
             <ul class="list-group" *ngIf="artist.albumsVisible">
-              <li class="list-group-item" *ngFor="let album of artist.albums; index as j">{{ j + 1 + '. ' + album.title }}</li>
+              <li class="list-group-item" *ngFor="let album of artist.albums">
+                <img class="img-thumbnail album-cover" [src]="'assets/images/albums/' + album.cover + '.jpg'" />
+                <span class="album-title">{{ album.title }}</span>
+              </li>
             </ul>
           </div>
         </div>
